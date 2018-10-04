@@ -18,11 +18,11 @@ public class ControlGestionDatos implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		
+
 		seleccionado=" ";
 		if (elmarco.getTablas().getSelectedItem() != null) {
 			seleccionado=(String) elmarco.getTablas().getSelectedItem();
-		
+	
 			campos=menu.darCamposTabla(seleccionado);
 			datosRegistros=menu.darDatosTabla(seleccionado);
 			

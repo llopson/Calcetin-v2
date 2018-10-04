@@ -12,6 +12,7 @@ public class ModeloGestionDatos {
 	private ArrayList<String[]> arrayIndex=new ArrayList<String[]>();
 	
 	public void importDatosTxt(String seleccionado) {
+
 		File archivo = null;
 	    FileReader fr = null;
 	    BufferedReader br = null;
@@ -41,6 +42,7 @@ public class ModeloGestionDatos {
 	      }
 	}
 	public void importIndexTxt() {
+
 		File archivo = null;
 	    FileReader fr = null;
 	    BufferedReader br = null;
@@ -72,6 +74,7 @@ public class ModeloGestionDatos {
 	  
 	}
 	public Object[]darNombreTablas (){
+
 		importIndexTxt();
 		nombreTablas=new Object[arrayIndex.size()];
 			for(int i=0;i<arrayIndex.size();i++) {
@@ -84,8 +87,10 @@ public class ModeloGestionDatos {
 			}
 		return nombreTablas;
 	}
+	
 	public Object[]darCamposTabla (String seleccionado){
 		importIndexTxt();
+
 		int count=0;
 		for(int i=0;i<arrayIndex.size();i++) {
 				for(int j=0;j<arrayIndex.get(i).length && arrayIndex.get(i)[1].equals(seleccionado);j++) {
@@ -107,17 +112,27 @@ public class ModeloGestionDatos {
 		return campos;
 	}
 	public Object[][] darDatosTabla(String seleccionado) {
+
 		importDatosTxt(seleccionado);
-		datosRegistros=new Object[arrayDatos.size()][arrayDatos.get(0).length];
-		for(int i=0;i<arrayDatos.size();i++) {
-			for(int j=0;j<arrayDatos.get(0).length;j++) {
-				datosRegistros[i][j]=arrayDatos.get(i)[j];
+
+		if(!arrayDatos.isEmpty()) {
+			datosRegistros=new Object[arrayDatos.size()][arrayDatos.get(0).length];
+			for(int i=0;i<arrayDatos.size();i++) {
+				for(int j=0;j<arrayDatos.get(0).length;j++) {
+					datosRegistros[i][j]=arrayDatos.get(i)[j];
+				}
 			}
+		}else {
+			datosRegistros= new Object[1][1];
+			datosRegistros[0][0]=null;
 		}
+			
+	
 		
 		return datosRegistros;
 	}
 	public String[] darDatosFila(String seleccionado, int i) {
+
 		importDatosTxt(seleccionado);
 		datosFila = new String[arrayDatos.get(i).length];
 		for(int x=0;x<arrayDatos.get(i).length;x++) {

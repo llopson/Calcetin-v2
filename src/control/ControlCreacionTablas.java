@@ -11,17 +11,18 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-
 import modelo.ModeloCreacionTablas;
 import vista.PanelCreacionTablas;
-import vista.VentanaPrincipal;
+import vista.PanelGestionTablas;
 
 public class ControlCreacionTablas implements ActionListener{
 
     private ModeloCreacionTablas myTable;
     private PanelCreacionTablas myWindow;
-
-    public ControlCreacionTablas(PanelCreacionTablas panel){
+    PanelGestionTablas tablas;
+   
+    public ControlCreacionTablas(PanelCreacionTablas panel,PanelGestionTablas tablas){
+    	this.tablas=tablas;
         this.myWindow = panel;
         myTable = new ModeloCreacionTablas();
         myWindow.getbuttonCreate().addActionListener(this);
@@ -53,6 +54,8 @@ public class ControlCreacionTablas implements ActionListener{
             if(!myTable.existTable(myWindow.getTextFieldTableName().getText())){
                 if(checkIfNotEmptyFields()){
                     writeFieldData();
+                   JComboBox<String> tab=tablas.getTablas();
+                   tab.addItem(myWindow.getTextFieldTableName().getText()); 
                 }else{
                     JOptionPane.showMessageDialog(new JPanel(),"Al menos debes llenar un campo");
                 }

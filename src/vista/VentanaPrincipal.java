@@ -69,7 +69,7 @@ public class VentanaPrincipal extends JFrame {
 		view4Create.setVisible(false);;
 		
 		newControladorLogin = new ControlLogin(view2);
-		newControlCreacionTablas = new ControlCreacionTablas(newPanelCreacionTablas);
+		newControlCreacionTablas = new ControlCreacionTablas(newPanelCreacionTablas,newPanelGestionTablas);
 		
 		//======== this ========
 		Container contentPane = getContentPane();
@@ -134,7 +134,11 @@ public class VentanaPrincipal extends JFrame {
 			});
 		
 			newPanelTablas.getManagTableButton().addActionListener(new ActionListener() {
+				
 				public void actionPerformed(ActionEvent e) {
+
+					//newPanelGestionTablas.recargarIndex();
+
 					if(view3.isVisible()){
 						view4Manag.setVisible(true);
 						view1.setVisible(false);
@@ -197,7 +201,7 @@ public class VentanaPrincipal extends JFrame {
 			
 			newPanelGestionTablas.getReturnManagTablesButton().addActionListener(new ActionListener() {
 		          public void actionPerformed(ActionEvent e) {
-	                    
+		            
 					if(view4Manag.isVisible()){
 						view3.setVisible(true);
 						view1.setVisible(false);
