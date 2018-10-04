@@ -1,0 +1,4 @@
+0001::Palomitas de maiz,s.l.::Soria::
+0002::Cacaguetes tostados,s.l.::Albacete::
+0001::Palomitas de maiz,s.l.::Soria::
+0002::Cacaguetes tostados,s.l.::Albacete2::

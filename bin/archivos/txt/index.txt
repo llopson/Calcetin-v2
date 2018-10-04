@@ -1,0 +1,2 @@
+1::Clientes::<K>Id::Number::Nombre::String::Apellido::String::Direccion::String::
+2::Proveedores::<K>Id::Number::Nombre::String::Direccion::String::
